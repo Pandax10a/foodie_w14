@@ -2,7 +2,7 @@
     <div>
         <h1>Fantuan Delivery</h1>
         <section>
-        <button><router-link to="/client/info">for user</router-link></button>
+        <button><router-link to="/client/">for user</router-link></button>
         <button><router-link to ="/partner/info">Restaurant owners</router-link></button>
         </section>
     </div>

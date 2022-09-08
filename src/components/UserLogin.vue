@@ -2,9 +2,12 @@
     <div>
         <!-- use one of these for log in: george.bluth@reqres.in janet.weaver@reqres.in emma.wong@reqres.in and any password -->
         <!-- using v-model to update temp storage of what's entered -->
+        <!-- this works as long as the entered string isnt too short -->
         <input v-model="user.user_email" placeholder="email" ref="entered_email">
-        <input v-model="user.user_pw" placeholder="Password">
-        <button @click="try_login()" ref="button_page">LOGIN</button>
+        
+        <input v-model="user.user_pw" placeholder="password">
+        
+        <button @click="try_login()" ref="button_page">Log in</button>
     </div>
 </template>
 
@@ -18,44 +21,63 @@ import Cookies from "vue-cookies"
             return {
                 user: {
                     user_email: "",
-                    user_pw: ""
+                    user_first_name: "",
+                    user_last_name: "",
+                    user_image_url: "",
+                    user_username: "",
+                    user_pw: "",
+
                 },
-                token: ""
+                token: "",
+                client_id: "",
             }
         },
-        methods: {
+  methods: {
+    
+        
+    
+  
             try_login() {
                
 
                 axios.request({
                 
-                url: `https://reqres.in/api/login`,
+                url: `https://innotechfoodie.ml/api/client-login`,
+                headers: {
+                    'x-api-key': `HKqygKStIXKqtPxphGeT`
+                },
                 method: `POST`,
                 data: {
                     email: this.user[`user_email`],
-                    password: this.user[`user_pw`]
+                    
+                    password: this.user[`user_pw`],
                 }
             }).then((success)=>{
                 success
-                Cookies
-                this.$refs.button_page.insertAdjacentHTML(`afterend`,  `<p><br>token id: ${success[`data`][`token`]} signed in <br><br>
-                Loading to gaming page in 3 seconds<p>`)
-                this.token = success[`data`][`token`]
+                this.token = success[`data`][`token`];
                 Cookies.set(`token`, this.token);
-                // setting 3 second delay to loading to next page
-                setTimeout(()=> this.$router.push('/numberduel'), 3000);
-                 
+                this.client_id = success[`data`][`client_id`];
+                Cookies.set(`client_id`, this.client_id);
+                
+                if(this.token.length > 5) {
+                    setTimeout(()=> this.$router.push('/client/profile'), 1000);
+                }else {
+                    this.$refs.button_page.insertAdjacentElement(`afterend`, `<p>Try again</p>`)
+                }
+                
+               
                 
 
                 
             }).catch((error)=>{
                 error
-                this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
+                // this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
             })
         },
-        name: 'user-signin'
+        name: 'user-login'
     }
     }
+    
 </script>
 
 <style scoped>

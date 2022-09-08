@@ -5,6 +5,7 @@ import RestaurantInfo from '@/views/RestaurantInfo.vue'
 import forClient from '@/views/forClient.vue'
 import NewUser from '@/views/NewUser.vue'
 import UserLoginPage from '@/views/UserLoginPage.vue'
+import UserProfile from '@/views/UserProfile.vue'
 
 
 
@@ -20,7 +21,7 @@ const routes = [
     component: RestaurantInfo
   },
   {
-    path: '/client/info',
+    path: '/client/',
     component: forClient
   },
   {
@@ -30,6 +31,10 @@ const routes = [
   {
     path: '/client/login',
     component: UserLoginPage
+  },
+  {
+    path: '/client/profile',
+    component: UserProfile
   }
 ]
 

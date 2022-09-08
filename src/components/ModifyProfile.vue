@@ -4,13 +4,13 @@
         <!-- using v-model to update temp storage of what's entered -->
         <!-- this works as long as the entered string isnt too short -->
         <!-- have to use v-bind on placeholder here to allow it to use variable as a value -->
-        <h1>All needs to be filled</h1>
-        <input v-model="user.user_email" placeholder="email" ref="entered_email">
-        <input v-model="user.user_first_name" :placeholder="user_first_name">
-        <input v-model="user.user_last_name" :placeholder="user_last_name">
-        <input v-model="user.user_image_url" :placeholder="user_image_url">
-        <input v-model="user.user_username" :placeholder="user_username">
-        <input v-model="user.user_pw" placeholder="Enter new password">
+        <h2 ref= "h1_header">All needs to be filled and either enter your old password or a new password to submit</h2>
+        <h3>Email: <input v-model="user.user_email" :placeholder="user_email" ref="entered_email"></h3>
+        <h3> First Name: <input v-model="user.user_first_name" :placeholder="user_first_name"> </h3>
+        <h3> Last Name: <input v-model="user.user_last_name" :placeholder="user_last_name"> </h3>
+        <h3> Image: <input v-model="user.user_image_url" :placeholder="user_image_url"> </h3>
+        <h3> Username: <input v-model="user.user_username" :placeholder="user_username"> </h3>
+        <h3> Password: <input v-model="user.user_pw" placeholder="Enter new or old password"> </h3>
         
         <button @click="try_login()" ref="button_page">submit Changes</button>
     </div>
@@ -43,10 +43,12 @@ import Cookies from "vue-cookies"
         methods: {
             transfer_profile(i){
                 console.log(i)
+                
                this.user.user_first_name = i.first_name;
                this.user.user_last_name = i.last_name;
                this.user.user_image_url = i.image_url;
                this.user.user_username = i.username;
+               this.user.user_email = i.email
                
             },
             try_login() {
@@ -73,7 +75,7 @@ import Cookies from "vue-cookies"
             }).then((success)=>{
                 success
              
-                this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>successfully updated</p>`)
+                this.$refs.h1_header.insertAdjacentHTML(`afterend`, `<h1>successfully updated</h1>`)
                 // this.$refs.button_page.insertAdjacentHTML(`afterend`,  `<p><br>token id: ${success[`data`][`token`]} signed in <br><br>
                 // Loading to gaming page in 3 seconds<p>`)
                 // this.token = success[`data`][`token`]
@@ -86,7 +88,7 @@ import Cookies from "vue-cookies"
                 
             }).catch((error)=>{
                 error
-                 this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error, failed to update</p>`)
+                 this.$refs.h1_header.insertAdjacentHTML(`afterend`, `<h1>error, failed to update</h1>`)
             })
         },
         name: 'modify-profile'

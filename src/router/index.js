@@ -6,6 +6,7 @@ import forClient from '@/views/forClient.vue'
 import NewUser from '@/views/NewUser.vue'
 import UserLoginPage from '@/views/UserLoginPage.vue'
 import UserProfile from '@/views/UserProfile.vue'
+import PageNotFound from '@/views/PageNotFound.vue'
 
 
 
@@ -35,6 +36,11 @@ const routes = [
   {
     path: '/client/profile',
     component: UserProfile
+  },
+  // the page not found option
+  { 
+    path: "*",
+    component: PageNotFound
   }
 ]
 

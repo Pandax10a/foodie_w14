@@ -1,12 +1,26 @@
 <template>
   <div id="app">
     <nav>
+      <h1>welcome to Fantuan</h1>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      
+      <user-logout></user-logout>
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+import UserLogout from '@/components/UserLogout.vue';
+
+export default {
+  components: {
+    UserLogout
+  },
+};
+</script>
+
 
 <style>
 #app {

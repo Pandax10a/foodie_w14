@@ -1,16 +1,17 @@
 <template>
     <div>
         <h1>New Partner sign up</h1>
-        <restaurant-signup></restaurant-signup>
+        <partner-signup></partner-signup>
     </div>
 </template>
 
 <script>
 
-import RestaurantSignup from '@/components/forRestaurant/RestaurantSignup.vue'
+
+import PartnerSignup from '@/components/forRestaurant/PartnerSignup.vue'
 
     export default {
-  components: {RestaurantSignup },
+  components: {PartnerSignup},
         
     }
 </script>

@@ -10,8 +10,10 @@
         <input v-model="user.user_image_url" placeholder="image_url">
         <input v-model="user.user_username" placeholder="username">
         <input v-model="user.user_pw" placeholder="password">
+        <br><br>
         
-        <button @click="try_login()" ref="button_page">Submit</button>
+        <button @click="try_login()" ref="button_page">Submit</button><br><br>
+        {{this.error_msg}}
     </div>
 </template>
 
@@ -34,6 +36,7 @@ import Cookies from "vue-cookies"
                 },
                 token: "",
                 client_id: "",
+                error_msg: "",
             }
         },
         methods: {
@@ -75,6 +78,7 @@ import Cookies from "vue-cookies"
                 
             }).catch((error)=>{
                 error
+                this.error_msg = error.response.data
                 // this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
             })
         },

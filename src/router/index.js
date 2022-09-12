@@ -10,6 +10,7 @@ import PageNotFound from '@/views/PageNotFound.vue'
 import forPartner from '@/views/RestaurantPartner/forPartner.vue'
 import NewPartner from '@/views/RestaurantPartner/NewPartner.vue'
 import PartnerLogin from '@/views/RestaurantPartner/PartnerLogin.vue'
+import UserDelete from '@/views/UserDelete.vue'
 
 
 
@@ -53,6 +54,10 @@ const routes = [
   {
     path: '/client/profile',
     component: UserProfile
+  },
+  {
+    path: '/client/delete',
+    component: UserDelete
   },
   
   // the page not found option

@@ -5,9 +5,10 @@
         <!-- this works as long as the entered string isnt too short -->
         <input v-model="user.user_email" placeholder="email" ref="entered_email">
         
-        <input v-model="user.user_pw" placeholder="password">
+        <input v-model="user.user_pw" placeholder="password"><br><br>
         
-        <button @click="try_login()" ref="button_page">Log in</button>
+        <button @click="try_login()" ref="button_page">Log in</button><br><br>
+        {{this.error_msg}}
     </div>
 </template>
 
@@ -21,15 +22,13 @@ import Cookies from "vue-cookies"
             return {
                 user: {
                     user_email: "",
-                    user_first_name: "",
-                    user_last_name: "",
-                    user_image_url: "",
-                    user_username: "",
+                   
                     user_pw: "",
 
                 },
                 token: "",
                 client_id: "",
+                error_msg: "",
             }
         },
   methods: {
@@ -73,6 +72,8 @@ import Cookies from "vue-cookies"
                 
             }).catch((error)=>{
                 error
+                // storing network response error message into variable to display for user
+                this.error_msg = error.response.data
                 // this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
             })
         },

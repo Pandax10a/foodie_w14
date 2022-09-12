@@ -1,13 +1,14 @@
 <template>
     <div>
-        <!-- use one of these for log in: george.bluth@reqres.in janet.weaver@reqres.in emma.wong@reqres.in and any password -->
+        
         <!-- using v-model to update temp storage of what's entered -->
         <!-- this works as long as the entered string isnt too short -->
         <input v-model="user.user_email" placeholder="email" ref="entered_email">
         
         <input v-model="user.user_pw" placeholder="password">
-        
-        <button @click="try_login()" ref="button_page">Log in</button>
+        <br><br>
+        <button @click="try_login()" ref="button_page">Log in</button><br><br>
+        {{this.error_msg}}
     </div>
 </template>
 
@@ -21,15 +22,13 @@ import Cookies from "vue-cookies"
             return {
                 user: {
                     user_email: "",
-                    user_first_name: "",
-                    user_last_name: "",
-                    user_image_url: "",
-                    user_username: "",
+
                     user_pw: "",
 
                 },
                 token: "",
                 client_id: "",
+                error_msg: "",
             }
         },
   methods: {
@@ -73,7 +72,11 @@ import Cookies from "vue-cookies"
                 
             }).catch((error)=>{
                 error
-                // this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
+                // sending the network error response back to a variable
+               
+                this.error_msg = error.response.data
+                
+                
             })
         },
         name: 'user-login'

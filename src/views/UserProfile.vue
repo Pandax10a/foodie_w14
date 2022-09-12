@@ -1,12 +1,14 @@
 <template>
     <div>
         <!-- setting v-if to check the existence of client id. the profile will show if it's there in cookie -->
+       
          <article v-if="(this.current_cookie) !== NaN" @click="isShown = !isShown">
         <h1>User profile Setting</h1>
         <p>account created on: {{user.created_at}}</p>
         <p>Name: {{user.first_name}} {{user.last_name}}</p>
         <p>Username: {{user.username}}</p>
         <img :src="user.image_url">
+        <user-logout></user-logout>
         <br><br>
        
             <button>Edit Profile placeholder for modifyprofile.vue</button>
@@ -32,10 +34,14 @@
 import axios from "axios"
 import Cookies from "vue-cookies"
 import ModifyProfile from "@/components/ModifyProfile.vue"
+import UserLogout from '@/components/UserLogout.vue'
+
 
     export default {
         components: {
             ModifyProfile,
+                UserLogout,
+            
         },
         data() {
             return {

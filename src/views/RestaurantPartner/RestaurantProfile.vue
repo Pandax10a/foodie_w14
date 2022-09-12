@@ -7,6 +7,7 @@
         <p>Name: {{user.first_name}} {{user.last_name}}</p>
         <p>Username: {{user.username}}</p>
         <img :src="user.image_url">
+        <partner-logout></partner-logout>
         <br><br>
        
             <button>Edit Profile placeholder for modifyprofile.vue</button>
@@ -33,10 +34,12 @@ import axios from "axios"
 import Cookies from "vue-cookies"
 
 import ModifyPartnerProfile from '@/components/forRestaurant/ModifyPartnerProfile.vue'
+import PartnerLogout from '@/components/forRestaurant/PartnerLogout.vue'
 
     export default {
         components: {
             ModifyPartnerProfile,
+                PartnerLogout,
         },
         data() {
       

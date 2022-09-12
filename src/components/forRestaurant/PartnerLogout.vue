@@ -3,7 +3,7 @@
         <!-- set condition that both cookies, client id and token, has to exist to show this button-->
         <button ref="button_page" @click="clear_token"
         v-show="(this.user_cookie.token.length > 2) && (this.user_cookie.client_id !== NaN)" 
-        >user Log out</button>
+        >Partner Log out</button>
         
     </div>
 </template>
@@ -14,8 +14,8 @@ export default {
 data() {
     return {
         user_cookie: {
-            'token': Cookies.get(`token`),
-            'client_id': Cookies.get(`client_id`),
+            token: Cookies.get(`partner_token`),
+            client_id: Cookies.get(`client_id_restaurant`),
 
         }
     }
@@ -23,14 +23,14 @@ data() {
     
         methods: {
             clear_token() {
-                Cookies.remove(`token`)
-                Cookies.remove(`client_id`)
+                Cookies.remove(`partner_token`)
+                Cookies.remove(`client_id_restaurant`)
                 this.$router.push('/')
                 this.$refs.button_page.insertAdjacentHTML(`afterend`, `<p>logged out successfully</p>`)
                 
             }
         },
-        name: 'user-logout'
+        name: 'partner-logout'
         
     }
 </script>

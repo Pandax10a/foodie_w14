@@ -9,6 +9,8 @@ import UserProfile from '@/views/UserProfile.vue'
 import PageNotFound from '@/views/PageNotFound.vue'
 import forPartner from '@/views/RestaurantPartner/forPartner.vue'
 import NewPartner from '@/views/RestaurantPartner/NewPartner.vue'
+import PartnerLogin from '@/views/RestaurantPartner/PartnerLogin.vue'
+
 
 
 
@@ -31,6 +33,10 @@ const routes = [
   {
     path: '/partner/new',
     component: NewPartner
+  },
+  {
+    path: '/partner/login',
+    component: PartnerLogin
   },
   {
     path: '/client/',

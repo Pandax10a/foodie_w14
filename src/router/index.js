@@ -12,6 +12,7 @@ import NewPartner from '@/views/RestaurantPartner/NewPartner.vue'
 import PartnerLogin from '@/views/RestaurantPartner/PartnerLogin.vue'
 import UserDelete from '@/views/UserDelete.vue'
 import PartnerDeletepage from '@/views/RestaurantPartner/PartnerDeletepage.vue'
+import RestaurantMenu from '@/views/RestaurantMenu/RestaurantMenu.vue'
 
 
 
@@ -63,6 +64,10 @@ const routes = [
   {
     path: '/client/delete',
     component: UserDelete
+  },
+  {
+    path: '/Restaurant/menu',
+    component: RestaurantMenu
   },
   
   // the page not found option

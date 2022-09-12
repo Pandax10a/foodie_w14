@@ -74,6 +74,7 @@ import ModifyProfile from "@/components/ModifyProfile.vue"
                 this.user.image_url = success.data[0].image_url;
                 this.user.username = success.data[0].username;
                 this.user.email = success.data[0].email
+                
 
                 // emit data so modifyprofile.vue component has access
 

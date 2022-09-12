@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Homepage from '@/views/HomePage.vue'
-import RestaurantInfo from '@/views/RestaurantInfo.vue'
+import RestaurantProfile from '@/views/RestaurantPartner/RestaurantProfile.vue'
 import forClient from '@/views/forClient.vue'
 import NewUser from '@/views/NewUser.vue'
 import UserLoginPage from '@/views/UserLoginPage.vue'
 import UserProfile from '@/views/UserProfile.vue'
 import PageNotFound from '@/views/PageNotFound.vue'
+import forPartner from '@/views/RestaurantPartner/forPartner.vue'
+// import { component } from 'vue/types/umd'
 
 
 
@@ -18,8 +20,12 @@ const routes = [
     component: Homepage
   },
   {
-    path: '/partner/info',
-    component: RestaurantInfo
+    path: '/partner/profile',
+    component: RestaurantProfile
+  },
+  {
+    path: '/partner/',
+    component: forPartner
   },
   {
     path: '/client/',
@@ -37,6 +43,7 @@ const routes = [
     path: '/client/profile',
     component: UserProfile
   },
+  
   // the page not found option
   { 
     path: "*",

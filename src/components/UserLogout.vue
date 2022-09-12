@@ -25,7 +25,9 @@ data() {
             clear_token() {
                 Cookies.remove(`token`)
                 Cookies.remove(`client_id`)
-                this.$refs.button_page.insertAdjacentHTML(`beforestart`, <p>Successfully Logged out</p>)
+                this.$router.push('/')
+                this.$refs.button_page.insertAdjacentHTML(`afterend`, `<p>logged out successfully</p>`)
+                
             }
         },
         name: 'user-logout'

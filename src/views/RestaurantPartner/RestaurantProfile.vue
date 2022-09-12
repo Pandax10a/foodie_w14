@@ -19,7 +19,7 @@
         <!-- using v-show to just hide the edit options together with @click in article to do show/hide -->
         <section v-show="isShown">
             <br>
-            <modify-profile></modify-profile>
+            <modify-partner-profile></modify-partner-profile>
         </section>
         
         
@@ -31,15 +31,17 @@
 <script>
 import axios from "axios"
 import Cookies from "vue-cookies"
-import ModifyProfile from "@/components/ModifyProfile.vue"
+
+import ModifyPartnerProfile from '@/components/forRestaurant/ModifyPartnerProfile.vue'
 
     export default {
         components: {
-            ModifyProfile,
+            ModifyPartnerProfile,
         },
         data() {
+      
             return {
-                user: {
+            user: {
                 created_at: "",
                 email: "",
                 first_name: "",
@@ -78,7 +80,7 @@ import ModifyProfile from "@/components/ModifyProfile.vue"
 
                 // emit data so modifyprofile.vue component has access
 
-                this.$root.$emit(`user_profile`, this.user)
+                this.$root.$emit(`user_profile_partner`, this.user)
 
 
                 

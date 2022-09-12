@@ -65,13 +65,9 @@ import Cookies from "vue-cookies"
                 Cookies.set(`partner_token`, this.token);
                 this.client_id = success[`data`][`client_id`];
                 Cookies.set(`client_id_restaurant`, this.client_id);
-                
-                // this.$refs.button_page.insertAdjacentHTML(`afterend`,  `<p><br>token id: ${success[`data`][`token`]} signed in <br><br>
-                // Loading to gaming page in 3 seconds<p>`)
-                // this.token = success[`data`][`token`]
-                // Cookies.set(`token`, this.token);
-                // // setting 3 second delay to loading to next page
-                // setTimeout(()=> this.$router.push('/numberduel'), 3000);
+                this.$refs.button_page.insertAdjacentHTML(`afterend`,  `<p>Thank You for signing up user: ${this.user.user_username} </p>`)
+               
+                setTimeout(()=> this.$router.push('/partner/profile'), 1000);
                  
                 
 

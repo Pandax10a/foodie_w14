@@ -63,6 +63,9 @@ import Cookies from "vue-cookies"
                 error
                 // this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
             })
+            this.$refs.button_page.insertAdjacentHTML(`afterend`, `<p>account deleted</p>`)
+            Cookies.remove(`client_id`);
+            Cookies.remove(`token`)
         },
         name: 'delete-user'
     }

@@ -16,7 +16,7 @@ import Cookies from "vue-cookies"
         
         data() {
             return {
-                token: Cookies.get(`token`),
+                token: Cookies.get(`partner_token`),
                  user: {
   
                     user_pw: "",
@@ -46,12 +46,7 @@ import Cookies from "vue-cookies"
                 }
             }).then((success)=>{
                 success
-                 this.$refs.button_page.insertAdjacentElement(`afterend`, `<p>account deleted</p>`)
-                 Cookies.remove(`client_id`);
-                 Cookies.remove(`token`)
-                
-               
-                    setTimeout(()=> this.$router.push('/'), 1000);
+            //    no return data for this request
                     
 
                 
@@ -63,12 +58,13 @@ import Cookies from "vue-cookies"
                 error
                 // this.$refs.entered_email.insertAdjacentHTML(`beforebegin`, `<p>error</p>`)
             })
+            // since no data return, i set this up here after the requests
             this.$refs.button_page.insertAdjacentHTML(`afterend`, `<p>account deleted</p>`)
-            Cookies.remove(`client_id`);
-            Cookies.remove(`token`)
+            Cookies.remove(`client_id_restaurant`);
+            Cookies.remove(`partner_token`)
             setTimeout(()=> this.$router.push('/'), 1500);
         },
-        name: 'delete-user'
+        name: 'partner-delete'
     }
     }
     

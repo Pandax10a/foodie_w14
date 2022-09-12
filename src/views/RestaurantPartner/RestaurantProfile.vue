@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-link to='/partner/delete'>Delete Account</router-link>
         <!-- setting v-if to check the existence of client id. the profile will show if it's there in cookie -->
          <article v-if="(this.current_cookie) !== NaN" @click="isShown = !isShown">
         <h1>User profile Setting</h1>

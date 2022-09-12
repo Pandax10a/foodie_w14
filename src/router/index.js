@@ -11,6 +11,7 @@ import forPartner from '@/views/RestaurantPartner/forPartner.vue'
 import NewPartner from '@/views/RestaurantPartner/NewPartner.vue'
 import PartnerLogin from '@/views/RestaurantPartner/PartnerLogin.vue'
 import UserDelete from '@/views/UserDelete.vue'
+import PartnerDeletepage from '@/views/RestaurantPartner/PartnerDeletepage.vue'
 
 
 
@@ -38,6 +39,10 @@ const routes = [
   {
     path: '/partner/login',
     component: PartnerLogin
+  },
+  {
+    path: '/partner/delete',
+    component: PartnerDeletepage
   },
   {
     path: '/client/',

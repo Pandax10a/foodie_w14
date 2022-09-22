@@ -2,10 +2,15 @@
     <div>
         <!-- i give up on allowing more flexible edits that's allow user input changes, because it would need
         to be uploaded somewhere beyond just cookies. -->
+        <!-- this is probably more functional for small foodtruck style entrepreneur that needs to rotate
+        daily specials-->
         <h1>Pre set on items that can be rotated into menu</h1>
         <section v-for="(item, index) in menu_items" :key="index">
             
-            <h3 @click="selecting_items(index)">{{index + 1}}.  {{item.title}}</h3>
+            <h3 @click="selecting_items(index)">{{index + 1}}.  {{item.name}} <br>
+                <!-- <img :src="item.image_url"> -->
+                {{item.the_disc}} <br> {{item.price}}
+            </h3>
             
             
 
@@ -23,7 +28,75 @@
         },
         data() {
             return {
-                menu_items: [{
+                // just have to pretend this data is from api
+                menu_items: [
+                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                {
+                    image_url: "https://i.imgur.com/uFJrlE1.png",
+                    name: "Pork Back Ribs /w Cheese",
+                    the_disc: "Grilled Korean style Pork Back Rib with melted cheese",
+                    price: "$24",
+                },
+                                {
+                    image_url: "https://i.imgur.com/7n6B4e9.png",
+                    name: "Grilled Chicken /w Cheese",
+                    the_disc: "Savory stir-fried chicken with melted cheese",
+                    price: "$22",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                                {
+                    image_url: "https://i.imgur.com/KVum81I.png",
+                    name: "Pork Back Ribs",
+                    the_disc: "Grilled Korean style Pork Back Rib",
+                    price: "$23",
+                },
+                {
                     title: 'Bar Bar Bar',
                     artist: 'Crayon Pop',
                     song_id: 5576117192,
@@ -62,5 +135,8 @@
 </script>
 
 <style scoped>
-
+img {
+    width: 20vw;
+    
+}
 </style>
